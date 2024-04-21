@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="loader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact Me</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <img src="doodle.jpg" alt="Person Doodle">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna risus, pulvinar sed magna eget, vehicula scelerisque ligula. Donec nec diam at risus consequat.</p>
+      <button>Contact Me</button>
+    </section>
+    <section class="cards">
+      <div class="card">
+        <h3>Education</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+        <button>Show More</button>
+      </div>
+      <div class="card">
+        <h3>Experience</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+        <button>Show More</button>
+      </div>
+      <div class="card">
+        <h3>Projects</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+        <button>Show More</button>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 Your Name</p>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact Me</a></li>
+      </ul>
+    </nav>
+  </footer>
+  <script>
+    /* script.js */
+
+const loader = document.querySelector(".loader");
+
+window.addEventListener("load", function() {
+  loader.classList.remove("loader"); // Remove loader after page loads
+});
+
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+  card.addEventListener("mouseover", function() {
+    card.style.backgroundColor = "#f0f0f0"; // Change background on hover
+    animateBackground(card); // Call animation function
+  });
+
+  card.addEventListener("mouseout", function() {
+    card.style.backgroundColor = "#fff"; // Reset background on mouseout
+  });
+});
+
+function animateBackground(card) {
+  const backgroundColors = ["#f0f8ff", "#f5fceff", "#fafdfe"]; // Array of colors
+  let currentColorIndex = 0;
+
+  const animationInterval = setInterval(() => {
+    card.style.backgroundColor = backgroundColors[currentColorIndex];
+    currentColorIndex = (currentColorIndex + 1) % backgroundColors.length; // Loop through color array
+  }, 100); // Change color every 100 milliseconds
+
+  card.addEventListener("mouseout", () => clearInterval(animationInterval)); // Stop animation on mouseout
+}
+
+  </script>
+</body>
+</html>
